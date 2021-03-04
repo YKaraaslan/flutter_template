@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:get/get.dart';
 import 'package:flutter_app_mvvm/core/init/language/languages/english.dart';
 import 'package:flutter_app_mvvm/core/init/language/languages/turkish.dart';
@@ -41,7 +42,7 @@ class LanguageManager extends Translations{
 
   // Finds language in `langs` list and returns it as Locale
   static Locale _getLocaleFromLanguage(String lang) {
-    for (int i = 0; i < langs.length; i++) {
+    for (var i = 0; i < langs.length; i++) {
       if (lang == langs[i]) return locales[i];
     }
     return Get.locale;

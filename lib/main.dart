@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_mvvm/core/base/state/base_state.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:get/get.dart';
 import 'package:flutter_app_mvvm/core/init/language/language_manager.dart';
 

@@ -1,3 +1,4 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:get/get.dart';
 
 class LoginViewModel extends GetxController {
@@ -7,5 +8,5 @@ class LoginViewModel extends GetxController {
     counter1.value += value;
   }
 
-  get counter => counter1.value;
+  int get counter => counter1.value;
 }

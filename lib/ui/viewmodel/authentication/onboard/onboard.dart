@@ -1,3 +1,4 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:get/get.dart';
 
 class OnBoardViewModel extends GetxController {
@@ -7,5 +8,5 @@ class OnBoardViewModel extends GetxController {
     counter1.value += value;
   }
 
-  get counter => counter1.value;
+  int get counter => counter1.value;
 }

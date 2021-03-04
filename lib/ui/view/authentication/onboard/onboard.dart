@@ -3,6 +3,7 @@ import 'package:flutter_app_mvvm/core/base/state/base_state.dart';
 import 'package:flutter_app_mvvm/core/base/view/base_view.dart';
 import 'package:flutter_app_mvvm/core/init/language/language_manager.dart';
 import 'package:flutter_app_mvvm/ui/viewmodel/authentication/onboard/onboard.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:get/get.dart';
 
 class OnBoard extends StatefulWidget {
@@ -22,7 +23,7 @@ class _OnBoardState extends BaseState<OnBoard> {
                 image: AssetImage('assets/images/welcome.png'),
               ),
               Text('welcome'.tr, style: TextStyle(color: Colors.blue, fontSize: 25),),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () {
                   LanguageManager.changeLocale('turkish');
                 },
