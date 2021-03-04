@@ -225,10 +225,10 @@ final ThemeData blueTheme = ThemeData(
     disabledInactiveTickMarkColor: null,
     thumbColor: null,
     disabledThumbColor: null,
-    thumbShape: null(),
+    thumbShape: null,
     overlayColor: null,
     valueIndicatorColor: null,
-    valueIndicatorShape: null(),
+    valueIndicatorShape: null,
     showValueIndicator: null,
     valueIndicatorTextStyle: TextStyle(
       color: Color( 0xffffffff ),
