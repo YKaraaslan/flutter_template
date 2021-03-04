@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class BaseView<T> extends StatefulWidget {
   final Widget Function(BuildContext context, T value) onPageBuilder;
   final T viewModel;
-  final Function(T model) onModelReady;
-  final VoidCallback onDispose;
+  final Function(T model)? onModelReady;
+  final VoidCallback? onDispose;
 
   const BaseView(
-      {Key key,
-      @required this.viewModel,
-      @required this.onPageBuilder,
+      {Key? key,
+      required this.viewModel,
+      required this.onPageBuilder,
       this.onModelReady,
       this.onDispose})
       : super(key: key);
@@ -22,13 +22,13 @@ class _BaseViewState extends State<BaseView> {
   @override
   void initState() {
     super.initState();
-    if (widget.onModelReady != null) widget.onModelReady(widget.viewModel);
+    if (widget.onModelReady != null) widget.onModelReady!(widget.viewModel);
   }
 
   @override
   void dispose() {
     super.dispose();
-    if (widget.onDispose != null) widget.onDispose();
+    if (widget.onDispose != null) widget.onDispose!();
   }
 
   @override

@@ -14,7 +14,7 @@ class _LoginState extends BaseState<Login> {
   Widget build(BuildContext context) {
     return BaseView(
         viewModel: Get.put(LoginViewModel()),
-        onPageBuilder: (context, viewModel) {
+        onPageBuilder: (context, dynamic viewModel) {
           return Container();
         });
   }

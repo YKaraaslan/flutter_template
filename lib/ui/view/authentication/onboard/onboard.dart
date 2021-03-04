@@ -15,7 +15,7 @@ class _OnBoardState extends BaseState<OnBoard> {
   Widget build(BuildContext context) {
     return BaseView(
         viewModel: Get.put(OnBoardViewModel()),
-        onPageBuilder: (context, viewModel) {
+        onPageBuilder: (context, dynamic viewModel) {
           return Column(
             children: [
               Image(
