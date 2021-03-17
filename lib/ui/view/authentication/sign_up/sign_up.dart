@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_mvvm/ui/viewmodel/authentication/sign_up/sign_up.dart';
+import 'package:flutter_app_mvvm/ui/viewmodel/authentication/sign_up/sign_up_viewmodel.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/base/view/base_view.dart';

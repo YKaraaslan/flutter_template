@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_mvvm/ui/viewmodel/home/home_main.dart';
+import 'package:flutter_app_mvvm/ui/viewmodel/home/home_main_viewmodel.dart';
 import 'package:get/get.dart';
 import 'package:get/utils.dart';
 
