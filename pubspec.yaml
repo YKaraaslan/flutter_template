@@ -18,6 +18,7 @@ dependencies:
   pedantic: ^1.11.0
   vexana: ^1.4.1
   google_fonts: ^1.1.2
+  page_view_indicators: ^2.0.0
 
 dev_dependencies:
   flutter_test:
