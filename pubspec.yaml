@@ -14,9 +14,10 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   get: ^3.26.0
-  flutter_native_splash: ^1.1.0
+  flutter_native_splash: ^1.1.1+1
   pedantic: ^1.11.0
   vexana: ^1.4.1
+  google_fonts: ^1.1.2
 
 dev_dependencies:
   flutter_test:
