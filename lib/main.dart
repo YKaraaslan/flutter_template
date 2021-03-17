@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
       fallbackLocale: LanguageManager.fallbackLocale,
       translations: LanguageManager(),
       initialRoute: Routes.main,
-      home: Main(),
       routes: {
         Routes.main:(context) => Main(),
         Routes.on_board:(context) => OnBoard(),

@@ -1,12 +1,28 @@
-// ignore: import_of_legacy_library_into_null_safe
+import 'package:flutter/material.dart';
+import 'package:flutter_app_mvvm/ui/view/authentication/onboard/pages/page_1.dart';
+import 'package:flutter_app_mvvm/ui/view/authentication/onboard/pages/page_2.dart';
+import 'package:flutter_app_mvvm/ui/view/authentication/onboard/pages/page_3.dart';
 import 'package:get/get.dart';
 
 class OnBoardViewModel extends GetxController {
-  final counter1 = 0.obs;
+  var pageLists = <Widget>[
+    Page1(),
+    Page2(),
+    Page3(),
+  ];
 
-  void increment(int value){
-    counter1.value += value;
+  final currentPageNotifier = ValueNotifier<int>(0);
+  var currentPage = 0.obs;
+  final pageController = PageController(initialPage: 0);
+
+  void setPageNotifiers(int value) {
+    currentPageNotifier.value = value;
+    currentPage.value = value;
   }
 
-  int get counter => counter1.value;
+  void login(){
+    Get.offAndToNamed('/login');
+  }
+
+  bool get continueButtonVisible => currentPage.value == 2;
 }

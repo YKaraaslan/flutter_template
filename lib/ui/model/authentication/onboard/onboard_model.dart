@@ -1,5 +1,7 @@
 class OnBoardModel {
-  String name;
+  String assetName;
+  String title;
+  String subtitle;
 
-  OnBoardModel({this.name});
+  OnBoardModel({this.assetName, this.title, this.subtitle});
 }
