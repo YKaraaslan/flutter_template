@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_mvvm/core/constant/colors.dart';
 import 'package:flutter_app_mvvm/ui/viewmodel/home/home_main_viewmodel.dart';
 import 'package:get/get.dart';
 import 'package:get/utils.dart';
@@ -14,10 +15,13 @@ class _HomeMainState extends State<HomeMain> {
   @override
   Widget build(BuildContext context) {
     return BaseView(
+      backgroundColor: !Get.isDarkMode ? AppColors.backgroundColor : null,
       viewModel: Get.put(HomeMainViewModel()),
-      onPageBuilder: (context, viewModel) {
-        return Container();
-      },
+      onPageBuilder: (context, viewModel) => body(context),
     );
+  }
+
+  Widget body(context) {
+    return Container();
   }
 }

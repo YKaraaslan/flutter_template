@@ -6,6 +6,9 @@ class BaseView<T> extends StatefulWidget {
   final Function(T model) onModelReady;
   final VoidCallback onDispose;
   final backgroundColor;
+  final appBar;
+  final bottomNavigationBar;
+  final drawer;
 
   const BaseView(
       {Key key,
@@ -13,7 +16,10 @@ class BaseView<T> extends StatefulWidget {
         @required this.onPageBuilder,
         this.onModelReady,
         this.onDispose,
-        this.backgroundColor = Colors.white})
+        this.backgroundColor,
+        this.appBar,
+        this.bottomNavigationBar,
+        this.drawer})
       : super(key: key);
 
   @override
@@ -36,7 +42,10 @@ class _BaseViewState extends State<BaseView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: widget.backgroundColor,
+      appBar: widget.appBar ,
+      bottomNavigationBar: widget.bottomNavigationBar,
+      drawer: widget.drawer,
+      backgroundColor: widget.backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: widget.onPageBuilder(context, widget.viewModel),
       ),
