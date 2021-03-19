@@ -3,10 +3,10 @@ import 'package:flutter_app_mvvm/ui/viewmodel/authentication/onboard/pages/page_
 import 'package:get/get.dart';
 
 class Page3 extends StatelessWidget {
-  final viewModel = Get.put(Page3ViewModel());
+  const Page3();
 
   @override
   Widget build(BuildContext context) {
-    return viewModel.onBoardBase();
+    return Get.put(Page3ViewModel()).onBoardBase();
   }
 }

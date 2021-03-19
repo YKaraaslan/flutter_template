@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class AppCircularImagePlaceHolder extends StatelessWidget {
-  final double radius;
+  const AppCircularImagePlaceHolder({
+    @required this.radius,
+  });
 
-  AppCircularImagePlaceHolder({@required this.radius});
+  final double radius;
 
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
       radius: radius,
-      backgroundImage: AssetImage('assets/images/profile_photo.png'),
+      backgroundImage: AssetImage('assets/images/sign_up/profile_photo.png'),
     );
   }
 }

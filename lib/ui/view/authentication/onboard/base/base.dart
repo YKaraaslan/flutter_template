@@ -4,9 +4,9 @@ import 'package:flutter_app_mvvm/core/constant/styles.dart';
 import 'package:flutter_app_mvvm/ui/model/authentication/onboard/onboard_model.dart';
 
 class OnBoardBase extends StatelessWidget {
-  final OnBoardModel model;
-
   const OnBoardBase({@required this.model});
+
+  final OnBoardModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +21,18 @@ class OnBoardBase extends StatelessWidget {
             ),
           ),
         ),
-        Text(model.title, style: kTitleStyle, textAlign: TextAlign.center,),
+        Text(
+          model.title,
+          style: kTitleStyle,
+          textAlign: TextAlign.center,
+        ),
         Padding(
           padding: const EdgeInsets.all(15.0),
-          child: Text(model.subtitle, style: kSubtitleStyle, textAlign: TextAlign.center,),
+          child: Text(
+            model.subtitle,
+            style: kSubtitleStyle,
+            textAlign: TextAlign.center,
+          ),
         ),
       ],
     );

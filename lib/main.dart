@@ -26,11 +26,11 @@ class MyApp extends StatelessWidget {
       translations: LanguageManager(),
       initialRoute: Routes.main,
       routes: {
-        Routes.main:(context) => Main(),
-        Routes.on_board:(context) => OnBoard(),
-        Routes.login:(context) => Login(),
-        Routes.sign_up:(context) => SignUp(),
-        Routes.home_main:(context) => HomeMain(),
+        Routes.main: (context) => const Main(),
+        Routes.on_board: (context) => const OnBoard(),
+        Routes.login: (context) => const Login(),
+        Routes.sign_up: (context) => const SignUp(),
+        Routes.home_main: (context) => const HomeMain(),
       },
       themeMode: ThemeMode.light,
       darkTheme: appDarkTheme(context),
@@ -39,8 +39,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class Main extends StatefulWidget {
+  const Main();
+
   @override
   _MainState createState() => _MainState();
 }
@@ -48,6 +49,6 @@ class Main extends StatefulWidget {
 class _MainState extends BaseState<Main> {
   @override
   Widget build(BuildContext context) {
-    return OnBoard();
+    return const OnBoard();
   }
 }

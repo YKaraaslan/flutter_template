@@ -7,6 +7,8 @@ import 'package:get/utils.dart';
 import '../../../core/base/view/base_view.dart';
 
 class HomeMain extends StatefulWidget {
+  const HomeMain();
+
   @override
   _HomeMainState createState() => _HomeMainState();
 }
@@ -17,11 +19,16 @@ class _HomeMainState extends State<HomeMain> {
     return BaseView(
       backgroundColor: !Get.isDarkMode ? AppColors.backgroundColor : null,
       viewModel: Get.put(HomeMainViewModel()),
-      onPageBuilder: (context, viewModel) => body(context),
+      onPageBuilder: (context, viewModel) => Body(),
     );
   }
+}
 
-  Widget body(context) {
+class Body extends StatelessWidget {
+  const Body();
+
+  @override
+  Widget build(BuildContext context) {
     return Container();
   }
 }

@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_mvvm/core/base/view/base_view.dart';
 import 'package:flutter_app_mvvm/ui/viewmodel/authentication/sign_up/sign_up_viewmodel.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/base/view/base_view.dart';
+class SignUp extends StatelessWidget {
+  const SignUp();
 
-class SignUp extends StatefulWidget {
-  @override
-  _SignUpState createState() => _SignUpState();
-}
-
-class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return BaseView(

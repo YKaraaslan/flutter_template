@@ -1,26 +1,28 @@
 import 'package:flutter/material.dart';
 
 class BaseView<T> extends StatefulWidget {
+  const BaseView(
+      {Key key,
+      @required this.viewModel,
+      @required this.onPageBuilder,
+      this.onModelReady,
+      this.onDispose,
+      this.backgroundColor,
+      this.appBar,
+      this.bottomNavigationBar,
+      this.drawer,
+      this.floatingActionButton})
+      : super(key: key);
+
   final Widget Function(BuildContext context, T value) onPageBuilder;
   final T viewModel;
   final Function(T model) onModelReady;
   final VoidCallback onDispose;
-  final backgroundColor;
-  final appBar;
+  final Color backgroundColor;
+  final AppBar appBar;
   final bottomNavigationBar;
   final drawer;
-
-  const BaseView(
-      {Key key,
-        @required this.viewModel,
-        @required this.onPageBuilder,
-        this.onModelReady,
-        this.onDispose,
-        this.backgroundColor,
-        this.appBar,
-        this.bottomNavigationBar,
-        this.drawer})
-      : super(key: key);
+  final FloatingActionButton floatingActionButton;
 
   @override
   _BaseViewState createState() => _BaseViewState();
@@ -42,10 +44,12 @@ class _BaseViewState extends State<BaseView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: widget.appBar ,
+      appBar: widget.appBar,
       bottomNavigationBar: widget.bottomNavigationBar,
       drawer: widget.drawer,
-      backgroundColor: widget.backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
+      floatingActionButton: widget.floatingActionButton,
+      backgroundColor:
+          widget.backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: widget.onPageBuilder(context, widget.viewModel),
       ),
