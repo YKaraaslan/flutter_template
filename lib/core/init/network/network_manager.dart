@@ -17,7 +17,6 @@ class NetworkManager extends INetworkManager {
   Future<List<NetworkModel>?> getreturnTypes() async {
     final response = await Dio(BaseOptions(baseUrl: _baseUrl)).get(_path);
     if (response.statusCode == HttpStatus.ok) {
-      
       returnType = NetworkResponseModel.fromJson(response.data).data!.toList();
       return returnType;
     }
