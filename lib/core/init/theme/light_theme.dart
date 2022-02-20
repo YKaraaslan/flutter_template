@@ -1,27 +1,24 @@
-import 'package:flutter_app_mvvm/core/constant/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import '../../constant/colors.dart';
 
 ThemeData appLightTheme(BuildContext context){
   return ThemeData.light().copyWith(
-    primaryColor: AppColors.app_color,
     brightness: Brightness.light,
     backgroundColor: Colors.white,
     scaffoldBackgroundColor: Colors.white,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: Colors.white,
       foregroundColor: Colors.black,
       titleTextStyle: TextStyle(color: Colors.black),
       iconTheme: IconThemeData(color: Colors.black),
     ),
-    iconTheme: IconThemeData(color: Colors.black45),
-    textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme).apply(bodyColor: Colors.black),
-    colorScheme: ColorScheme.light(
-      primary: AppColors.app_color,
+    iconTheme: const IconThemeData(color: Colors.black45),
+    colorScheme: const ColorScheme.light(
       secondary: AppColors.primarySwatch,
       error: Colors.red,
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Colors.white,
       selectedItemColor: AppColors.primarySwatch,
       selectedIconTheme: IconThemeData(color: AppColors.primarySwatch),

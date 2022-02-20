@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class BaseView<T> extends StatefulWidget {
   const BaseView(
-      {Key key,
-      @required this.viewModel,
-      @required this.onPageBuilder,
+      {Key? key,
+      required this.onPageBuilder,
+      this.viewModel,
       this.onModelReady,
       this.onDispose,
       this.backgroundColor,
@@ -15,14 +15,14 @@ class BaseView<T> extends StatefulWidget {
       : super(key: key);
 
   final Widget Function(BuildContext context, T value) onPageBuilder;
-  final T viewModel;
-  final Function(T model) onModelReady;
-  final VoidCallback onDispose;
-  final Color backgroundColor;
-  final AppBar appBar;
-  final bottomNavigationBar;
-  final drawer;
-  final FloatingActionButton floatingActionButton;
+  final T? viewModel;
+  final Function(T model)? onModelReady;
+  final VoidCallback? onDispose;
+  final Color? backgroundColor;
+  final AppBar? appBar;
+  final Widget? bottomNavigationBar;
+  final Drawer? drawer;
+  final FloatingActionButton? floatingActionButton;
 
   @override
   _BaseViewState createState() => _BaseViewState();
@@ -32,13 +32,13 @@ class _BaseViewState extends State<BaseView> {
   @override
   void initState() {
     super.initState();
-    if (widget.onModelReady != null) widget.onModelReady(widget.viewModel);
+    if (widget.onModelReady != null) widget.onModelReady!(widget.viewModel);
   }
 
   @override
   void dispose() {
     super.dispose();
-    if (widget.onDispose != null) widget.onDispose();
+    if (widget.onDispose != null) widget.onDispose!();
   }
 
   @override

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'colors.dart';
 
-final kTitleStyle = TextStyle(
-  color: AppColors.app_color,
-  fontSize: 26.0,
-  height: 1.5,
-);
-
-final kSubtitleStyle = TextStyle(
+const pointerValueStyle = TextStyle(
   fontSize: 18.0,
-  height: 1.2,
 );
+
+TextStyle pointerTextStyle(BuildContext context) {
+  return TextStyle(
+    fontSize: 13.0,
+    color: Theme.of(context).splashColor.withOpacity(1),
+  );
+}

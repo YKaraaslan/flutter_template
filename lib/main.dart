@@ -1,54 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_mvvm/core/base/state/base_state.dart';
-import 'package:get/get.dart';
-import 'package:flutter_app_mvvm/core/init/language/language_manager.dart';
+import 'package:provider/provider.dart';
 
 import 'core/constant/routes.dart';
-import 'core/init/theme/dark_theme.dart';
-import 'core/init/theme/light_theme.dart';
-import 'ui/view/authentication/login/login.dart';
-import 'ui/view/authentication/onboard/onboard.dart';
-import 'ui/view/authentication/sign_up/sign_up.dart';
-import 'ui/view/home/home_main.dart';
 
 void main() {
   runApp(
-    MyApp(),
+    MultiProvider(providers: const [ //remove 'const' when you need to add a Provider 
+        /*ChangeNotifierProvider(create: (context) => ViewModel()),*/
+    ],
+      child: const MyApp(),
+    )
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      locale: LanguageManager.locale,
-      fallbackLocale: LanguageManager.fallbackLocale,
-      translations: LanguageManager(),
-      initialRoute: Routes.main,
-      routes: {
-        Routes.main: (context) => const Main(),
-        Routes.on_board: (context) => const OnBoard(),
-        Routes.login: (context) => const Login(),
-        Routes.sign_up: (context) => const SignUp(),
-        Routes.home_main: (context) => const HomeMain(),
-      },
+    return MaterialApp(
       themeMode: ThemeMode.light,
-      darkTheme: appDarkTheme(context),
-      theme: appLightTheme(context),
+      theme: ThemeData.light(),
+      routes: Routes.getRoutes(context),
+      initialRoute: Routes.homeView
     );
-  }
-}
-
-class Main extends StatefulWidget {
-  const Main();
-
-  @override
-  _MainState createState() => _MainState();
-}
-
-class _MainState extends BaseState<Main> {
-  @override
-  Widget build(BuildContext context) {
-    return const OnBoard();
   }
 }
