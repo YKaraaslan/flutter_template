@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
-const pointerValueStyle = TextStyle(
-  fontSize: 18.0,
-);
+class Styles {
+  Styles._privateConstructor();
+  static final Styles _instance = Styles._privateConstructor();
+  factory Styles() {
+    return _instance;
+  }
 
-TextStyle pointerTextStyle(BuildContext context) {
-  return TextStyle(
-    fontSize: 13.0,
-    color: Theme.of(context).splashColor.withOpacity(1),
-  );
+  static TextStyle titleStyle(BuildContext context) {
+    return TextStyle(
+      fontSize: 23,
+      color: Theme.of(context).primaryColor,
+    );
+  }
 }

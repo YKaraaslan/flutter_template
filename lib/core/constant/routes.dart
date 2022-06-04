@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
-import '../../view/home_view.dart';
-
 class Routes {
+  Routes._privateConstructor();
+  static final Routes _instance = Routes._privateConstructor();
+  factory Routes() {
+    return _instance;
+  }
 
-  static const String homeView = '/homeView'; // use '' if there are multiple views.
+  static const String basePhotoViewer = '/base_photo_viewer';
 
   static Map<String, Widget Function(BuildContext)> getRoutes(BuildContext context) {
-
-  return {
-    homeView: (context) => const HomeView(),
+    return {
+      // basePhotoViewer: (context) => const BasePhotoViewer(),
     };
   }
 }

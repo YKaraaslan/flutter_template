@@ -2,16 +2,7 @@ import 'package:flutter/material.dart';
 
 class BaseView<T> extends StatefulWidget {
   const BaseView(
-      {Key? key,
-      required this.onPageBuilder,
-      this.viewModel,
-      this.onModelReady,
-      this.onDispose,
-      this.backgroundColor,
-      this.appBar,
-      this.bottomNavigationBar,
-      this.drawer,
-      this.floatingActionButton})
+      {Key? key, required this.onPageBuilder, this.viewModel, this.onModelReady, this.onDispose, this.backgroundColor, this.appBar, this.bottomNavigationBar, this.drawer, this.floatingActionButton})
       : super(key: key);
 
   final Widget Function(BuildContext context, T value) onPageBuilder;
@@ -19,13 +10,13 @@ class BaseView<T> extends StatefulWidget {
   final Function(T model)? onModelReady;
   final VoidCallback? onDispose;
   final Color? backgroundColor;
-  final AppBar? appBar;
+  final PreferredSizeWidget? appBar;
   final Widget? bottomNavigationBar;
   final Drawer? drawer;
   final FloatingActionButton? floatingActionButton;
 
   @override
-  _BaseViewState createState() => _BaseViewState();
+  State<BaseView> createState() => _BaseViewState();
 }
 
 class _BaseViewState extends State<BaseView> {
@@ -48,11 +39,8 @@ class _BaseViewState extends State<BaseView> {
       bottomNavigationBar: widget.bottomNavigationBar,
       drawer: widget.drawer,
       floatingActionButton: widget.floatingActionButton,
-      backgroundColor:
-          widget.backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
-      body: SafeArea(
-        child: widget.onPageBuilder(context, widget.viewModel),
-      ),
+      backgroundColor: widget.backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
+      body: widget.onPageBuilder(context, widget.viewModel),
     );
   }
 }

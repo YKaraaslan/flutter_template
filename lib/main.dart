@@ -1,33 +1,44 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'core/constant/routes.dart';
+import 'core/theme/dark_theme.dart';
+import 'core/theme/theme_provider.dart';
+import 'core/theme/light_theme.dart';
+import 'view/home_view.dart';
 
-void main() {
+Future<void> main() async {
   runApp(
-    MultiProvider(providers: const [ //remove 'const' when you need to add a Provider 
-        /*ChangeNotifierProvider(create: (context) => ViewModel()),*/
-    ],
-      child: const MyApp(),
-    )
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ThemeProvider(), lazy: true),
+      ],
+      child: EasyLocalization(
+        supportedLocales: const [Locale('tr', 'TR'), Locale('en', 'US')],
+        path: 'assets/translations',
+        fallbackLocale: const Locale('tr', 'TR'),
+        child: const MyApp(),
+      ),
+    ),
   );
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      themeMode: ThemeMode.light,
-      theme: ThemeData.light(),
+      themeMode: context.watch<ThemeProvider>().darkTheme ? ThemeMode.dark : ThemeMode.light,
+      theme: appLightTheme(context),
+      darkTheme: appDarkTheme(context),
+      debugShowCheckedModeBanner: false,
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       routes: Routes.getRoutes(context),
-      initialRoute: Routes.homeView
+      home: const HomeView(),
     );
   }
 }
