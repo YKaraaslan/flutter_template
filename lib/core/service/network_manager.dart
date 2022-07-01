@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 
 import '../models/sample_model.dart';
 
+// Simple Network Manager
 abstract class INetworkManager {
   final String _path = '';
   INetworkManager();

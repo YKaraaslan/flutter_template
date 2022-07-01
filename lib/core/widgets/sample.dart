@@ -9,7 +9,7 @@ class SampleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseView(
-      onPageBuilder: (context, value) => _Body(
+      onPageBuilder: _Body(
         text: text,
       ),
     );

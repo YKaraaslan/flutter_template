@@ -9,15 +9,17 @@ import 'core/theme/light_theme.dart';
 import 'view/home_view.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => ThemeProvider(), lazy: true),
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
       ],
       child: EasyLocalization(
-        supportedLocales: const [Locale('tr', 'TR'), Locale('en', 'US')],
+        supportedLocales: const [Locale('tr'), Locale('en')],
         path: 'assets/translations',
-        fallbackLocale: const Locale('tr', 'TR'),
+        fallbackLocale: const Locale('tr'),
         child: const MyApp(),
       ),
     ),
@@ -30,7 +32,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      themeMode: context.watch<ThemeProvider>().darkTheme ? ThemeMode.dark : ThemeMode.light,
+      themeMode: context.watch<ThemeProvider>().darkTheme
+          ? ThemeMode.dark
+          : ThemeMode.light,
       theme: appLightTheme(context),
       darkTheme: appDarkTheme(context),
       debugShowCheckedModeBanner: false,
