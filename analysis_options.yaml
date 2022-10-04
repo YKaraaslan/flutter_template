@@ -6,3 +6,19 @@ analyzer:
 
 linter:
   rules:
+    avoid_void_async: true
+    prefer_single_quotes: true
+    await_only_futures: true
+    unawaited_futures: true
+    unnecessary_parenthesis: true
+    use_colored_box: true
+    use_decorated_box: true
+    use_raw_strings: true
+    use_named_constants: true
+    unnecessary_raw_strings: true
+    unnecessary_null_checks: true
+    # unnecessary_lambdas: true
+    unnecessary_final: true
+    type_annotate_public_apis: true
+    sized_box_shrink_expand: true
+    prefer_int_literals: true

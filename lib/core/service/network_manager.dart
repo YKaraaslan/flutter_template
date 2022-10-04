@@ -17,7 +17,7 @@ class NetworkManager extends INetworkManager {
   final dio = Dio(BaseOptions(baseUrl: ''));
 
   Future<dynamic> _getDioRequest() async {
-    final response = await dio.get(_path);
+    var response = await dio.get(_path);
 
     if (response.statusCode == HttpStatus.ok) {
       return response.data;
@@ -26,7 +26,7 @@ class NetworkManager extends INetworkManager {
 
   @override
   Future<List<SampleCatModel>?> getCats() async {
-    final response = await _getDioRequest();
+    var response = await _getDioRequest();
     returnType = [];
     if (response is List) {
       return response.map((e) => SampleCatModel.fromJson(e)).toList();

@@ -14,7 +14,7 @@ class ApiRepository {
   static String _baseUrl = '';
 
   Future init() async {
-    final dio = Dio();
+    var dio = Dio();
     // var token =
     //     await SharedPrefHelper.getStringPrefFor(key: SharedPrefs.tokenType);
     // var accessToken =
